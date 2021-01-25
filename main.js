@@ -8,14 +8,9 @@ function deleteSection() {
 }
 
 function startGame() {
-    let sectionTwo = document.createElement("section")
-    sectionTwo.innerHTML = `
-          <canvas width="1000px" height="500px">
-          </canvas>
-          <div> SCORE<div>
-          <script src="game.js"></script>
-          `
-    body.appendChild(sectionTwo)
+    let canvas = document.querySelector("canvas")
+    canvas.style.display = "block"
+    initial()
     
   }
 
@@ -24,6 +19,7 @@ function start(){
     startbtn.addEventListener("click", function(){
     deleteSection()
         startGame()
+        
     })
 }
 start()

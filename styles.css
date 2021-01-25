@@ -18,3 +18,8 @@ p {
     font-family: 'Hachi Maru Pop'
  , cursive;
 }
+
+canvas {
+    display: none;
+    margin: 0 auto;
+}
