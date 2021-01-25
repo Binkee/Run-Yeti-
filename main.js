@@ -11,7 +11,6 @@ function startGame() {
     let canvas = document.querySelector("canvas")
     canvas.style.display = "block"
     initial()
-    
   }
 
 function start(){
@@ -22,4 +21,6 @@ function start(){
         
     })
 }
-start()
+window.addEventListener('load', () => {
+    start()
+})
