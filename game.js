@@ -12,6 +12,7 @@ let charY = 350
 let snowballRate = 300
 
 
+
 let backImg = document.createElement("img")
 backImg.src = '/images/aline-costa-neve.jpg'
 
@@ -99,8 +100,8 @@ function collision() {
         charY < reindeers[i].y + 100 &&
         charY + 80 > reindeers[i].y) {
          clearInterval(intervalId)
-
-         gameOver()
+             gameOver()
+         
      }
      
     }
@@ -110,6 +111,7 @@ function collision() {
             charY < snowballs[i].y + 40 &&
             charY + 80 > snowballs[i].y){
              clearInterval(intervalId)
+             gameOver()
             }
     }
  }
@@ -136,18 +138,37 @@ function draw() {
     else if (isDownArrow){
         charY += 1
     }
-    
-
-    
+ 
     fall()
     run()
     collision()
+   
 }
 
 function initial(){
    intervalId = setInterval(() => {
-            requestAnimationFrame(draw)
+       requestID = requestAnimationFrame(draw)
+            
         }, 1)
 
 canvas.style.border = '2px solid black'
+}
+
+
+function restartGame(){
+    // reset all your variables here
+    charX = 350;
+    charY = 350
+    reindeers = [{x:760, y: 400}]
+    snowballs = [{x: 0, y: -50}]
+    snowballRate = 300
+    intervalId = 0
+    score = 0
+    isLeftArrow = false
+    isRightArrow = false
+    isUpArrow = false
+    isDownArrow = false
+    canvas = document.querySelector('canvas')
+    ctx = canvas.getContext('2d')
+    initial()
 }

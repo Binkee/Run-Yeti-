@@ -10,11 +10,17 @@ function deleteSection() {
 function startGame() {
     let canvas = document.querySelector("canvas")
     canvas.style.display = "block"
-    initial()
+    restartGame()
   }
 function gameOver(){
-    let getDiv = document.getElementsByClassName('.div-2')
+    let getDiv = document.querySelector('.div-2')
+    canvas.style.display = "none"
     getDiv.style.display = 'block'
+    let restartbtn = document.querySelector('.restart-button')
+    restartbtn.addEventListener("click", function(){
+        getDiv.style.display = 'none'
+        startGame()
+    })
 }
 function start(){
     let startbtn = document.querySelector('button')
