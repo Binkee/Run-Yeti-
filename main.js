@@ -12,7 +12,10 @@ function startGame() {
     canvas.style.display = "block"
     initial()
   }
-
+function gameOver(){
+    let getDiv = document.getElementsByClassName('.div-2')
+    getDiv.style.display = 'block'
+}
 function start(){
     let startbtn = document.querySelector('button')
     startbtn.addEventListener("click", function(){
