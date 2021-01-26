@@ -37,6 +37,7 @@ document.addEventListener('keydown', (event) =>{
         isLeftArrow = true
         isUpArrow = false
         isDownArrow = false
+
     } 
     else if(event.keyCode == 38 || event.key == "ArrowUp") {
         isRightArrow = false
@@ -66,6 +67,7 @@ function fall(){
     snowballs[i].y++
 
       if(snowballs[i].y == snowballRate){
+          score++
          snowballs.push({
             x:Math.floor(Math.random() * (730 - 0)) + 0,
             y: -50        
@@ -84,6 +86,7 @@ function run() {
       ctx.drawImage(reindeerImg, reindeers[i].x, reindeers[i].y, 100,100)
       reindeers[i].x--
         if(reindeers[i].x == 100){
+            score++
             reindeers.push({
                 x: 780,
                 y: Math.floor(Math.random()* (450 - 250) + 250)
@@ -96,9 +99,9 @@ function collision() {
     for(let i = 0; i < reindeers.length; i++){
 
     if (charX < reindeers[i].x + 100 &&
-        charX + 80 > reindeers[i].x &&
+        charX + 63 > reindeers[i].x &&
         charY < reindeers[i].y + 100 &&
-        charY + 80 > reindeers[i].y) {
+        charY + 63 > reindeers[i].y) {
          clearInterval(intervalId)
              gameOver()
          
@@ -107,9 +110,9 @@ function collision() {
     }
     for(let i = 0; i < snowballs.length; i++){
         if(charX < snowballs[i].x + 40 &&
-            charX + 80 > snowballs[i].x &&
+            charX + 63 > snowballs[i].x &&
             charY < snowballs[i].y + 40 &&
-            charY + 80 > snowballs[i].y){
+            charY + 63 > snowballs[i].y){
              clearInterval(intervalId)
              gameOver()
             }
@@ -124,18 +127,21 @@ function draw() {
     ctx.closePath()
 
     ctx.beginPath()
-    ctx.drawImage(charImg, charX,charY, 80 ,80)
+    ctx.drawImage(charImg, charX,charY, 70 ,70)
     ctx.closePath()
-    if(isRightArrow) {
-      charX  += 1
-    } 
-    else if(isLeftArrow){
-        charX -= 1
+    ctx.font = '20px Verdana'
+    ctx.fillText('Score: ' + score, 10, canvas.height - 50)
+    if(isRightArrow && charX + 70 < canvas.width) {
+      charX  += 1 
     }
-    else if(isUpArrow){
+        
+    else if(isLeftArrow && charX > 0){
+       charX -= 1
+    }
+    else if(isUpArrow && charY > 0){
         charY -= 1
     }
-    else if (isDownArrow){
+    else if (isDownArrow && charY + 70 < canvas.height){
         charY += 1
     }
  
@@ -147,7 +153,7 @@ function draw() {
 
 function initial(){
    intervalId = setInterval(() => {
-       requestID = requestAnimationFrame(draw)
+        requestAnimationFrame(draw)
             
         }, 1)
 
