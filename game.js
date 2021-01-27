@@ -98,20 +98,22 @@ function run() {
 function collision() {
     for(let i = 0; i < reindeers.length; i++){
 
-    if (charX < reindeers[i].x + 100 &&
+    if (charX < reindeers[i].x + 90 &&
         charX + 63 > reindeers[i].x &&
-        charY < reindeers[i].y + 100 &&
+        charY < reindeers[i].y + 90 &&
         charY + 63 > reindeers[i].y) {
          clearInterval(intervalId)
-             gameOver()
+         audio.pause();
+        audio.currentTime = 0;    
+         gameOver()
          
      }
      
     }
     for(let i = 0; i < snowballs.length; i++){
-        if(charX < snowballs[i].x + 40 &&
+        if(charX < snowballs[i].x + 36 &&
             charX + 63 > snowballs[i].x &&
-            charY < snowballs[i].y + 40 &&
+            charY < snowballs[i].y + 36 &&
             charY + 63 > snowballs[i].y){
              clearInterval(intervalId)
              gameOver()
@@ -138,7 +140,7 @@ function draw() {
     else if(isLeftArrow && charX > 0){
        charX -= 1
     }
-    else if(isUpArrow && charY > 0){
+    else if(isUpArrow && charY > 270){
         charY -= 1
     }
     else if (isDownArrow && charY + 70 < canvas.height){

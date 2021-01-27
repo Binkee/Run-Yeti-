@@ -1,5 +1,5 @@
 let body = document.querySelector('body')
-  
+var audio = new Audio('./images/Binke - Alles Gaat Fout (mp3cut.net)-[AudioTrimmer.com].mp3');
 
 function deleteSection() {
  let delSection = document.querySelector("section")
@@ -16,6 +16,7 @@ function gameOver(){
     let getDiv = document.querySelector('.div-2')
     canvas.style.display = "none"
     getDiv.style.display = 'block'
+  
     let restartbtn = document.querySelector('.restart-button')
     restartbtn.addEventListener("click", function(){
         getDiv.style.display = 'none'
@@ -25,11 +26,13 @@ function gameOver(){
 function start(){
     let startbtn = document.querySelector('button')
     startbtn.addEventListener("click", function(){
-    deleteSection()
-        startGame()
-        
+    deleteSection()    
+    startGame()
+    audio.play();
     })
 }
 window.addEventListener('load', () => {
     start()
+    
+        audio.volume = 0.4;
 })
