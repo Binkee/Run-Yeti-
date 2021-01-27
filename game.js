@@ -116,6 +116,8 @@ function collision() {
             charY < snowballs[i].y + 36 &&
             charY + 63 > snowballs[i].y){
              clearInterval(intervalId)
+             audio.pause();
+             audio.currentTime = 0; 
              gameOver()
             }
     }
