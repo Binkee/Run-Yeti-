@@ -105,8 +105,7 @@ function collision() {
          clearInterval(intervalId)
          reindeers[i].x = -100
          audio.pause();
-        audio.currentTime = 0;    
-        console.log('Reindeer collided')
+        audio.currentTime = 0;   
          gameOver(score)
          
      }
@@ -120,8 +119,7 @@ function collision() {
              clearInterval(intervalId)
              snowballs[i].x = -100
              audio.pause();
-             audio.currentTime = 0; 
-             console.log('Snowball collision')
+             audio.currentTime = 0;
              gameOver(score)
             }
     }
@@ -137,20 +135,20 @@ function draw() {
     ctx.beginPath()
     ctx.drawImage(charImg, charX,charY, 70 ,70)
     ctx.closePath()
-    ctx.font = '20px Verdana'
+    ctx.font = '22px Hachi Maru Pop'
     ctx.fillText('Score: ' + score, 10, canvas.height - 50)
     if(isRightArrow && charX + 70 < canvas.width) {
-      charX  += 1 
+      charX  += 1.2
     }
         
     else if(isLeftArrow && charX > 0){
-       charX -= 1
+       charX -= 1.2
     }
     else if(isUpArrow && charY > 270){
-        charY -= 1
+        charY -= 1.2
     }
     else if (isDownArrow && charY + 70 < canvas.height){
-        charY += 1
+        charY += 1.2
     }
  
     fall()
@@ -185,5 +183,6 @@ function restartGame(){
     isDownArrow = false
     canvas = document.querySelector('canvas')
     ctx = canvas.getContext('2d')
+    audio.play()
     initial()
 }
