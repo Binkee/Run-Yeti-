@@ -14,16 +14,16 @@ let snowballRate = 300
 
 
 let backImg = document.createElement("img")
-backImg.src = './images/aline-costa-neve.jpg'
+backImg.src = 'images/aline-costa-neve.jpg'
 
 let charImg = document.createElement("img")
-charImg.src = './images/yetii.png'
+charImg.src = 'images/yetii.png'
 
 let snowImg = document.createElement("img")
-snowImg.src = './images/snowball.png'
+snowImg.src = 'images/snowball.png'
 
 let reindeerImg = document.createElement('img')
-reindeerImg.src = './images/unnamed.png'
+reindeerImg.src = 'images/unnamed.png'
 
 document.addEventListener('keydown', (event) =>{
     if(event.keyCode == 39 || event.key == "ArrowRight") {
