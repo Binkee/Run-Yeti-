@@ -1,5 +1,6 @@
 let body = document.querySelector('body')
 var audio = new Audio('./images/Binke - Alles Gaat Fout (mp3cut.net)-[AudioTrimmer.com].mp3');
+audio.loop=true;
 let getDiv = document.querySelector('.div-2')
 function deleteSection() {
  let delSection = document.querySelector("section")
