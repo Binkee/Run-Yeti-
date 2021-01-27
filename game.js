@@ -98,13 +98,14 @@ function run() {
 function collision() {
     for(let i = 0; i < reindeers.length; i++){
 
-    if (charX < reindeers[i].x + 90 &&
+    if (charX < reindeers[i].x + 80 &&
         charX + 63 > reindeers[i].x &&
-        charY < reindeers[i].y + 90 &&
+        charY < reindeers[i].y + 80 &&
         charY + 63 > reindeers[i].y) {
          clearInterval(intervalId)
          reindeers[i].x = -100
          audio.pause();
+         audio2.play()
         audio.currentTime = 0;   
          gameOver(score)
          
@@ -119,6 +120,7 @@ function collision() {
              clearInterval(intervalId)
              snowballs[i].x = -100
              audio.pause();
+             audio2.play()
              audio.currentTime = 0;
              gameOver(score)
             }
