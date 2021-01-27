@@ -103,9 +103,11 @@ function collision() {
         charY < reindeers[i].y + 90 &&
         charY + 63 > reindeers[i].y) {
          clearInterval(intervalId)
+         reindeers[i].x = -100
          audio.pause();
         audio.currentTime = 0;    
-         gameOver()
+        console.log('Reindeer collided')
+         gameOver(score)
          
      }
      
@@ -116,9 +118,11 @@ function collision() {
             charY < snowballs[i].y + 36 &&
             charY + 63 > snowballs[i].y){
              clearInterval(intervalId)
+             snowballs[i].x = -100
              audio.pause();
              audio.currentTime = 0; 
-             gameOver()
+             console.log('Snowball collision')
+             gameOver(score)
             }
     }
  }
@@ -166,6 +170,7 @@ canvas.style.border = '2px solid black'
 
 
 function restartGame(){
+    console.log('here')
     // reset all your variables here
     charX = 350;
     charY = 350
