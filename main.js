@@ -34,5 +34,5 @@ function start(){
 window.addEventListener('load', () => {
     start()
     
-        audio.volume = 0.4;
+        audio.volume = 0.1;
 })
