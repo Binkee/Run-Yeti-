@@ -11,8 +11,6 @@ let charX = 350
 let charY = 350
 let snowballRate = 300
 
-
-
 let backImg = document.createElement("img")
 backImg.src = './images/aline-costa-neve.jpg'
 
@@ -162,16 +160,12 @@ function draw() {
 function initial(){
    intervalId = setInterval(() => {
         requestAnimationFrame(draw)
-            
-        }, 1)
-
-canvas.style.border = '2px solid black'
+            }, 1)
+        canvas.style.border = '2px solid black'
 }
 
 
 function restartGame(){
-    console.log('here')
-    // reset all your variables here
     charX = 350;
     charY = 350
     reindeers = [{x:760, y: 400}]
