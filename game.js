@@ -1,4 +1,4 @@
-
+//Setting the variables
 let canvas = document.querySelector('canvas')
 let ctx = canvas.getContext('2d')
 let intervalId = 0
@@ -11,6 +11,7 @@ let charX = 350
 let charY = 350
 let snowballRate = 300
 
+// Creating the background images
 let backImg = document.createElement("img")
 backImg.src = './images/aline-costa-neve.jpg'
 
@@ -23,6 +24,7 @@ snowImg.src = './images/snowball.png'
 let reindeerImg = document.createElement('img')
 reindeerImg.src = './images/unnamed.png'
 
+// Added eventlisteners for the Arrows movement on the keyboard
 document.addEventListener('keydown', (event) =>{
     if(event.keyCode == 39 || event.key == "ArrowRight") {
         isRightArrow = true
@@ -51,13 +53,15 @@ document.addEventListener('keydown', (event) =>{
     }
     
 })
- 
+// Keyup Eventlistener
 document.addEventListener('keyup', (event) =>{
     isRightArrow = false
     isLeftArrow = false
     isDownArrow = false
     isUpArrow = false
 })
+
+// Creating the Snowballs to fall randomly and adding score in the function
 let snowballs = [{x: 0, y: -50}]
 function fall(){
   for(let i = 0; i < snowballs.length; i++){
@@ -77,7 +81,7 @@ function fall(){
       }
   }
 }
-
+// Creating reindeers to run randomly from right to lef
 let reindeers = [{x:760, y: 400}]
 function run() {
     for(let i = 0; i < reindeers.length; i++){
@@ -92,19 +96,19 @@ function run() {
         }
     }
 }
-
+// Creating a function for the collision detection both snowballs and reindeers
 function collision() {
     for(let i = 0; i < reindeers.length; i++){
 
     if (charX < reindeers[i].x + 80 &&
-        charX + 63 > reindeers[i].x &&
+        charX + 66 > reindeers[i].x &&
         charY < reindeers[i].y + 80 &&
-        charY + 63 > reindeers[i].y) {
+        charY + 66 > reindeers[i].y) {
          clearInterval(intervalId)
          reindeers[i].x = -100
          audio.pause();
          audio2.play()
-        audio.currentTime = 0;   
+         audio.currentTime = 0;   
          gameOver(score)
          
      }
@@ -124,14 +128,11 @@ function collision() {
             }
     }
  }
-     
-     
-
+ // Drawing the images on the canvas and set the speed for the character to move
 function draw() {
     ctx.beginPath()
     ctx.drawImage(backImg, 0, 0,750,500)
     ctx.closePath()
-
     ctx.beginPath()
     ctx.drawImage(charImg, charX,charY, 70 ,70)
     ctx.closePath()
@@ -139,8 +140,7 @@ function draw() {
     ctx.fillText('Score: ' + score, 10, canvas.height - 50)
     if(isRightArrow && charX + 70 < canvas.width) {
       charX  += 1.2
-    }
-        
+    }    
     else if(isLeftArrow && charX > 0){
        charX -= 1.2
     }
@@ -156,7 +156,7 @@ function draw() {
     collision()
    
 }
-
+// initialize the game
 function initial(){
    intervalId = setInterval(() => {
         requestAnimationFrame(draw)
@@ -164,7 +164,7 @@ function initial(){
         canvas.style.border = '2px solid black'
 }
 
-
+// RestartGame function and reset all the variables
 function restartGame(){
     charX = 350;
     charY = 350

@@ -1,36 +1,31 @@
 body {
- font-family: 'Hachi Maru Pop'
- , cursive;
+ font-family: 'Hachi Maru Pop' , cursive;
  text-align: center;
 }
 
 h1 {
-    font-family: 'Hachi Maru Pop'
- , cursive;
+ font-family: 'Hachi Maru Pop' , cursive;
 }
 
-h2   {
-    padding-top: 0px;
-    font-family: 'Hachi Maru Pop'
- , cursive;
+h2 {
+ font-family: 'Hachi Maru Pop', cursive;
 }
+
 p {
-    font-family: 'Hachi Maru Pop'
- , cursive;
+ font-family: 'Hachi Maru Pop', cursive;
 }
 
 canvas {
-    display: none;
-    margin: 0 auto;
+ display: none;
+ margin: 0 auto;
 }
+
 .div-2 {
-    display: none;
-    margin: 0 auto;
+ display: none;
+ margin: 0 auto;
 }
 
 #myScore {
-    font-family: 'Hachi Maru Pop'
- , cursive;
-   font-size: 30px;
-   
+ font-family: 'Hachi Maru Pop', cursive;
+ font-size: 30px;
 }
