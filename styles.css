@@ -12,20 +12,62 @@ h2 {
 }
 
 p {
- font-family: 'Hachi Maru Pop', cursive;
+ font-family: 'poppins', cursive;
+ font-style: italic;
 }
-
+.start-p{
+    margin-top: 40px;
+}
 canvas {
  display: none;
  margin: 0 auto;
+ display: flex;
+ justify-content: center;
+ position: center;
 }
 
 .div-2 {
  display: none;
  margin: 0 auto;
 }
-
+.btn {
+    width:100px;
+    
+}
 #myScore {
  font-family: 'Hachi Maru Pop', cursive;
  font-size: 30px;
+}
+
+.start-screen{
+    margin-top: 30px;
+    width:300px;
+}
+
+@media (max-width:780px){
+    canvas{
+        width:400px;
+        height: 568px;
+        position: absolute;
+    }
+
+    p{
+        white-space: nowrap;
+        overflow: auto;
+        font-size: 12px;
+        margin-top: 50px !important;
+    }
+
+
+    .title{
+        margin:30px;
+    }
+
+    .start-screen{
+        margin-top: 50px;
+    }
+
+    .btn{
+        margin-top:60px;
+    }
 }
